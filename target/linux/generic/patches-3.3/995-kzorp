@@ -1245,7 +1245,7 @@ Index: linux-3.3.8/net/netfilter/kzorp_core.c
 ===================================================================
 --- /dev/null
 +++ linux-3.3.8/net/netfilter/kzorp_core.c
-@@ -0,0 +1,1929 @@
+@@ -0,0 +1,1930 @@
 +/*
 + * KZorp core
 + *
@@ -1269,6 +1269,7 @@ Index: linux-3.3.8/net/netfilter/kzorp_core.c
 +#include <linux/proc_fs.h>
 +#include <linux/seq_file.h>
 +#include <linux/workqueue.h>
++#include <linux/vmalloc.h>
 +#ifdef CONFIG_SYSCTL
 +#include <linux/sysctl.h>
 +#endif
