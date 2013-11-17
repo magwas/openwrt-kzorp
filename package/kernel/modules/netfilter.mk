@@ -323,7 +323,8 @@ define KernelPackage/kzorp
 		CONFIG_NETFILTER_XT_MATCH_SERVICE
   FILES:= $(LINUX_DIR)/net/netfilter/kzorp.ko \
 	  $(LINUX_DIR)/net/netfilter/xt_KZORP.ko
-  AUTOLOAD:=$(call AutoLoad,45,kzorp)
+  AUTOLOAD:=$(call AutoLoad,45,kzorp) \
+		$(call AutoLoad,46,xt_KZORP)
   $(call AddDepends/ipt)
 endef
 
