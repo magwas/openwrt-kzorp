@@ -21,8 +21,8 @@ define Build/Prepare
 endef
 
 define Package/kzorp-addons/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/libxt_KZORP.so $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/iptables
+	$(CP) $(PKG_BUILD_DIR)/libxt_KZORP.so $(1)/usr/lib/iptables
 endef
 
 $(eval $(call BuildPackage,kzorp-addons))
