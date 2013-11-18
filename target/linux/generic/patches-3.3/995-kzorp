@@ -1,8 +1,8 @@
 Index: linux-3.3.8/include/linux/netfilter/Kbuild
 ===================================================================
---- linux-3.3.8.orig/include/linux/netfilter/Kbuild
-+++ linux-3.3.8/include/linux/netfilter/Kbuild
-@@ -21,6 +21,7 @@ header-y += xt_CONNSECMARK.h
+--- linux-3.3.8.orig/include/linux/netfilter/Kbuild	2013-11-18 17:12:29.239269379 +0100
++++ linux-3.3.8/include/linux/netfilter/Kbuild	2013-11-18 17:12:30.151285665 +0100
+@@ -21,6 +21,7 @@
  header-y += xt_CT.h
  header-y += xt_DSCP.h
  header-y += xt_IDLETIMER.h
@@ -12,9 +12,9 @@ Index: linux-3.3.8/include/linux/netfilter/Kbuild
  header-y += xt_nfacct.h
 Index: linux-3.3.8/include/linux/netfilter/nfnetlink.h
 ===================================================================
---- linux-3.3.8.orig/include/linux/netfilter/nfnetlink.h
-+++ linux-3.3.8/include/linux/netfilter/nfnetlink.h
-@@ -48,7 +48,7 @@ struct nfgenmsg {
+--- linux-3.3.8.orig/include/linux/netfilter/nfnetlink.h	2012-06-01 09:16:13.000000000 +0200
++++ linux-3.3.8/include/linux/netfilter/nfnetlink.h	2013-11-18 17:12:30.151285665 +0100
+@@ -48,7 +48,7 @@
  #define NFNL_SUBSYS_ULOG		4
  #define NFNL_SUBSYS_OSF			5
  #define NFNL_SUBSYS_IPSET		6
@@ -25,9 +25,9 @@ Index: linux-3.3.8/include/linux/netfilter/nfnetlink.h
  #ifdef __KERNEL__
 Index: linux-3.3.8/include/linux/netfilter_ipv4.h
 ===================================================================
---- linux-3.3.8.orig/include/linux/netfilter_ipv4.h
-+++ linux-3.3.8/include/linux/netfilter_ipv4.h
-@@ -61,9 +61,12 @@ enum nf_ip_hook_priorities {
+--- linux-3.3.8.orig/include/linux/netfilter_ipv4.h	2012-06-01 09:16:13.000000000 +0200
++++ linux-3.3.8/include/linux/netfilter_ipv4.h	2013-11-18 17:12:30.151285665 +0100
+@@ -61,9 +61,12 @@
  	NF_IP_PRI_SELINUX_FIRST = -225,
  	NF_IP_PRI_CONNTRACK = -200,
  	NF_IP_PRI_MANGLE = -150,
@@ -42,9 +42,9 @@ Index: linux-3.3.8/include/linux/netfilter_ipv4.h
  	NF_IP_PRI_CONNTRACK_CONFIRM = INT_MAX,
 Index: linux-3.3.8/net/netfilter/Kconfig
 ===================================================================
---- linux-3.3.8.orig/net/netfilter/Kconfig
-+++ linux-3.3.8/net/netfilter/Kconfig
-@@ -337,6 +337,18 @@ config NETFILTER_XTABLES
+--- linux-3.3.8.orig/net/netfilter/Kconfig	2013-11-18 17:12:29.275270021 +0100
++++ linux-3.3.8/net/netfilter/Kconfig	2013-11-18 17:12:30.151285665 +0100
+@@ -337,6 +337,18 @@
  	  This is required if you intend to use any of ip_tables,
  	  ip6_tables or arp_tables.
  
@@ -63,7 +63,7 @@ Index: linux-3.3.8/net/netfilter/Kconfig
  if NETFILTER_XTABLES
  
  comment "Xtables combined modules"
-@@ -499,6 +511,14 @@ config NETFILTER_XT_TARGET_IDLETIMER
+@@ -499,6 +511,14 @@
  
  	  To compile it as a module, choose M here.  If unsure, say N.
  
@@ -78,7 +78,7 @@ Index: linux-3.3.8/net/netfilter/Kconfig
  config NETFILTER_XT_TARGET_LED
  	tristate '"LED" target support'
  	depends on LEDS_CLASS && LEDS_TRIGGERS
-@@ -1023,6 +1043,15 @@ config NETFILTER_XT_MATCH_REALM
+@@ -1023,6 +1043,15 @@
  	  If you want to compile it as a module, say M here and read
  	  <file:Documentation/kbuild/modules.txt>.  If unsure, say `N'.
  
@@ -96,9 +96,9 @@ Index: linux-3.3.8/net/netfilter/Kconfig
  	depends on NETFILTER_ADVANCED
 Index: linux-3.3.8/net/netfilter/Makefile
 ===================================================================
---- linux-3.3.8.orig/net/netfilter/Makefile
-+++ linux-3.3.8/net/netfilter/Makefile
-@@ -14,6 +14,10 @@ obj-$(CONFIG_NETFILTER_NETLINK_LOG) += n
+--- linux-3.3.8.orig/net/netfilter/Makefile	2013-11-18 17:12:29.235269307 +0100
++++ linux-3.3.8/net/netfilter/Makefile	2013-11-18 17:12:30.151285665 +0100
+@@ -14,6 +14,10 @@
  # connection tracking
  obj-$(CONFIG_NF_CONNTRACK) += nf_conntrack.o
  
@@ -109,7 +109,7 @@ Index: linux-3.3.8/net/netfilter/Makefile
  # SCTP protocol connection tracking
  obj-$(CONFIG_NF_CT_PROTO_DCCP) += nf_conntrack_proto_dccp.o
  obj-$(CONFIG_NF_CT_PROTO_GRE) += nf_conntrack_proto_gre.o
-@@ -57,6 +61,7 @@ obj-$(CONFIG_NETFILTER_XT_TARGET_CONNSEC
+@@ -57,6 +61,7 @@
  obj-$(CONFIG_NETFILTER_XT_TARGET_CT) += xt_CT.o
  obj-$(CONFIG_NETFILTER_XT_TARGET_DSCP) += xt_DSCP.o
  obj-$(CONFIG_NETFILTER_XT_TARGET_HL) += xt_HL.o
@@ -117,7 +117,7 @@ Index: linux-3.3.8/net/netfilter/Makefile
  obj-$(CONFIG_NETFILTER_XT_TARGET_LED) += xt_LED.o
  obj-$(CONFIG_NETFILTER_XT_TARGET_NFLOG) += xt_NFLOG.o
  obj-$(CONFIG_NETFILTER_XT_TARGET_NFQUEUE) += xt_NFQUEUE.o
-@@ -103,6 +108,7 @@ obj-$(CONFIG_NETFILTER_XT_MATCH_RATEEST)
+@@ -103,6 +108,7 @@
  obj-$(CONFIG_NETFILTER_XT_MATCH_REALM) += xt_realm.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_RECENT) += xt_recent.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_SCTP) += xt_sctp.o
@@ -125,7 +125,7 @@ Index: linux-3.3.8/net/netfilter/Makefile
  obj-$(CONFIG_NETFILTER_XT_MATCH_SOCKET) += xt_socket.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_STATE) += xt_state.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_LAYER7) += xt_layer7.o
-@@ -111,6 +117,7 @@ obj-$(CONFIG_NETFILTER_XT_MATCH_STRING)
+@@ -111,6 +117,7 @@
  obj-$(CONFIG_NETFILTER_XT_MATCH_TCPMSS) += xt_tcpmss.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_TIME) += xt_time.o
  obj-$(CONFIG_NETFILTER_XT_MATCH_U32) += xt_u32.o
@@ -135,8 +135,8 @@ Index: linux-3.3.8/net/netfilter/Makefile
  obj-$(CONFIG_IP_SET) += ipset/
 Index: linux-3.3.8/include/linux/netfilter/kzorp.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/linux/netfilter/kzorp.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/kzorp.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,685 @@
 +/*
 + * KZorp data structures
@@ -825,8 +825,8 @@ Index: linux-3.3.8/include/linux/netfilter/kzorp.h
 +#endif
 Index: linux-3.3.8/include/linux/netfilter/kzorp_netlink.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/linux/netfilter/kzorp_netlink.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/kzorp_netlink.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,198 @@
 +/*
 + * KZorp netfilter netlink interface
@@ -1028,8 +1028,8 @@ Index: linux-3.3.8/include/linux/netfilter/kzorp_netlink.h
 +#endif
 Index: linux-3.3.8/include/linux/netfilter/kzorp_sockopt.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/linux/netfilter/kzorp_sockopt.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/kzorp_sockopt.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,27 @@
 +/*
 + * KZorp getsockopt() interface
@@ -1060,8 +1060,8 @@ Index: linux-3.3.8/include/linux/netfilter/kzorp_sockopt.h
 +#endif
 Index: linux-3.3.8/include/linux/netfilter/xt_KZORP.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/linux/netfilter/xt_KZORP.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/xt_KZORP.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,14 @@
 +#ifndef _XT_KZORP_H_target
 +#define _XT_KZORP_H_target
@@ -1079,8 +1079,8 @@ Index: linux-3.3.8/include/linux/netfilter/xt_KZORP.h
 +#endif /* _XT_KZORP_H_target */
 Index: linux-3.3.8/include/net/netfilter/kzorp_internal.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/net/netfilter/kzorp_internal.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/net/netfilter/kzorp_internal.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,30 @@
 +#ifndef _KZORP_INTERNAL_H
 +#define _KZORP_INTERNAL_H
@@ -1114,8 +1114,8 @@ Index: linux-3.3.8/include/net/netfilter/kzorp_internal.h
 +#endif /* _KZORP_INTERNAL_H */
 Index: linux-3.3.8/include/net/netfilter/kzorp_lookup_internal.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/net/netfilter/kzorp_lookup_internal.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/net/netfilter/kzorp_lookup_internal.h	2013-11-18 17:12:30.151285665 +0100
 @@ -0,0 +1,124 @@
 +#ifndef _KZORP_LOOKUP_INTERNAL_H
 +#define _KZORP_LOOKUP_INTERNAL_H
@@ -1243,8 +1243,8 @@ Index: linux-3.3.8/include/net/netfilter/kzorp_lookup_internal.h
 +#endif /* _KZORP_LOOKUP_INTERNAL_H */
 Index: linux-3.3.8/net/netfilter/kzorp_core.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/kzorp_core.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/kzorp_core.c	2013-11-18 17:12:30.155285737 +0100
 @@ -0,0 +1,1930 @@
 +/*
 + * KZorp core
@@ -3178,8 +3178,8 @@ Index: linux-3.3.8/net/netfilter/kzorp_core.c
 +module_exit(kzorp_core_fini);
 Index: linux-3.3.8/net/netfilter/kzorp_lookup.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/kzorp_lookup.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/kzorp_lookup.c	2013-11-18 17:12:30.155285737 +0100
 @@ -0,0 +1,2238 @@
 +/*
 + * KZorp data structure lookup implementation
@@ -5421,8 +5421,8 @@ Index: linux-3.3.8/net/netfilter/kzorp_lookup.c
 +EXPORT_SYMBOL_GPL(kz_lookup_session);
 Index: linux-3.3.8/net/netfilter/kzorp_netlink.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/kzorp_netlink.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/kzorp_netlink.c	2013-11-18 17:12:30.159285808 +0100
 @@ -0,0 +1,3803 @@
 +/*
 + * KZorp netlink interface
@@ -9229,8 +9229,8 @@ Index: linux-3.3.8/net/netfilter/kzorp_netlink.c
 +             __stringify(NETLINK_GENERIC) "-type-" "l2tp");
 Index: linux-3.3.8/net/netfilter/kzorp_sockopt.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/kzorp_sockopt.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/kzorp_sockopt.c	2013-11-18 17:12:30.159285808 +0100
 @@ -0,0 +1,190 @@
 +/*
 + * KZorp getsockopt() interface
@@ -9424,8 +9424,8 @@ Index: linux-3.3.8/net/netfilter/kzorp_sockopt.c
 +}
 Index: linux-3.3.8/net/netfilter/xt_KZORP.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/xt_KZORP.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/xt_KZORP.c	2013-11-18 17:12:30.159285808 +0100
 @@ -0,0 +1,1416 @@
 +/*
 + * KZorp support for Linux/iptables
@@ -10845,9 +10845,9 @@ Index: linux-3.3.8/net/netfilter/xt_KZORP.c
 +MODULE_ALIAS("ip6t_KZORP");
 Index: linux-3.3.8/include/net/netfilter/nf_conntrack_extend.h
 ===================================================================
---- linux-3.3.8.orig/include/net/netfilter/nf_conntrack_extend.h
-+++ linux-3.3.8/include/net/netfilter/nf_conntrack_extend.h
-@@ -20,7 +20,8 @@ enum nf_ct_ext_id {
+--- linux-3.3.8.orig/include/net/netfilter/nf_conntrack_extend.h	2012-06-01 09:16:13.000000000 +0200
++++ linux-3.3.8/include/net/netfilter/nf_conntrack_extend.h	2013-11-18 17:12:30.159285808 +0100
+@@ -20,7 +20,8 @@
  #ifdef CONFIG_NF_CONNTRACK_TIMESTAMP
  	NF_CT_EXT_TSTAMP,
  #endif
@@ -10857,7 +10857,7 @@ Index: linux-3.3.8/include/net/netfilter/nf_conntrack_extend.h
  };
  
  #define NF_CT_EXT_HELPER_TYPE struct nf_conn_help
-@@ -29,6 +30,7 @@ enum nf_ct_ext_id {
+@@ -29,6 +30,7 @@
  #define NF_CT_EXT_ECACHE_TYPE struct nf_conntrack_ecache
  #define NF_CT_EXT_ZONE_TYPE struct nf_conntrack_zone
  #define NF_CT_EXT_TSTAMP_TYPE struct nf_conn_tstamp
@@ -10867,8 +10867,8 @@ Index: linux-3.3.8/include/net/netfilter/nf_conntrack_extend.h
  struct nf_ct_ext {
 Index: linux-3.3.8/net/netfilter/xt_service.c
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/net/netfilter/xt_service.c
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/xt_service.c	2013-11-18 17:12:30.159285808 +0100
 @@ -0,0 +1,170 @@
 +/*
 + * KZorp `service' match
@@ -11042,8 +11042,8 @@ Index: linux-3.3.8/net/netfilter/xt_service.c
 +module_exit(service_mt_exit);
 Index: linux-3.3.8/include/linux/netfilter/xt_service.h
 ===================================================================
---- /dev/null
-+++ linux-3.3.8/include/linux/netfilter/xt_service.h
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/xt_service.h	2013-11-18 17:12:30.159285808 +0100
 @@ -0,0 +1,27 @@
 +#ifndef _XT_SERVICE_H
 +#define _XT_SERVICE_H
@@ -11072,3 +11072,176 @@ Index: linux-3.3.8/include/linux/netfilter/xt_service.h
 +};
 +
 +#endif
+Index: linux-3.3.8/include/linux/netfilter/xt_zone.h
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/include/linux/netfilter/xt_zone.h	2013-11-18 17:22:23.457872951 +0100
+@@ -0,0 +1,25 @@
++#ifndef _XT_ZONE_H
++#define _XT_ZONE_H
++
++/* flags */
++enum {
++	IPT_ZONE_SRC = 1,
++	IPT_ZONE_CHILDREN = 2,
++	IPT_ZONE_UMBRELLA = 4,
++};
++
++#define IPT_ZONE_NAME_LENGTH 126
++#define IPT_ZONE_NAME_COUNT 32
++
++struct ipt_zone_info {
++	u_int8_t flags;
++	unsigned char name[IPT_ZONE_NAME_LENGTH + 1];
++};
++
++struct ipt_zone_info_v1 {
++	u_int8_t flags;
++	u_int8_t count;
++	unsigned char names[IPT_ZONE_NAME_COUNT][IPT_ZONE_NAME_LENGTH + 1];
++};
++
++#endif
+Index: linux-3.3.8/net/netfilter/xt_zone.c
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.3.8/net/netfilter/xt_zone.c	2013-11-18 17:21:19.732736548 +0100
+@@ -0,0 +1,138 @@
++/*
++ * KZorp `zone' match
++ *
++ * Copyright (C) 2006-2011, BalaBit IT Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++#include <linux/module.h>
++#include <linux/skbuff.h>
++#include <linux/netdevice.h>
++
++#include <linux/netfilter/x_tables.h>
++#include <linux/netfilter/xt_zone.h>
++#include <linux/netfilter/kzorp.h>
++
++static bool
++zone_mt_v1_eval(const struct sk_buff *skb, const struct ipt_zone_info_v1 *info, const struct xt_action_param *par)
++{
++	enum ip_conntrack_info ctinfo;
++	struct nf_conn *ct;
++	struct kz_zone *zone;
++	const struct nf_conntrack_kzorp *kzorp;
++	int reply;
++	struct nf_conntrack_kzorp local_kzorp;
++	bool res;
++
++	rcu_read_lock();
++	ct = nf_ct_get((struct sk_buff *)skb, &ctinfo);
++	if (ct == NULL) /* we're really only interested if REPLY or not... */
++		ctinfo = IP_CT_NEW;
++	kzorp = ct ? nfct_kzorp_cached_lookup_rcu(ct, ctinfo, skb, par->in, par->family, NULL) : NULL;
++
++	if (kzorp == NULL)
++	{
++		kzorp = &local_kzorp;
++		memset(&local_kzorp, 0, sizeof(local_kzorp));
++		nfct_kzorp_lookup_rcu(&local_kzorp, ctinfo, skb, par->in, par->family, NULL);
++	}
++	rcu_read_unlock();
++
++	reply = ctinfo >= IP_CT_IS_REPLY;
++	if (info->flags & IPT_ZONE_SRC)
++		zone = reply ? kzorp->szone : kzorp->czone;
++	else
++		zone = reply ? kzorp->czone : kzorp->szone;
++
++	while (zone != NULL) {
++		int i;
++
++		for (i = 0; i != info->count; ++i)
++			if (strcmp(zone->name, info->names[i]) == 0)
++				goto ret_true;
++
++		if (info->flags & IPT_ZONE_CHILDREN)
++			zone = zone->admin_parent;
++		else
++			zone = NULL;
++	}
++
++/* ret_false: */
++	res = false;
++	goto done;
++ret_true:
++	res = true;
++done:
++	if (kzorp == &local_kzorp)
++		kz_destroy_kzorp(&local_kzorp);
++	return res;
++}
++
++static bool
++zone_mt_v1(const struct sk_buff *skb, struct xt_action_param *par)
++{
++	return zone_mt_v1_eval(skb, (const struct ipt_zone_info_v1 *) par->matchinfo, par);
++}
++
++static bool
++zone_mt_v0(const struct sk_buff *skb, struct xt_action_param *par)
++{
++	const struct ipt_zone_info *oldinfo = (const struct ipt_zone_info *) par->matchinfo;
++	/* would be ipt_zone_info_v1 directly, but that may exceed stack limit; we only need 1 entry*/
++	unsigned char buf[16 + offsetof(struct ipt_zone_info_v1, names) + sizeof(oldinfo->name)];
++	struct ipt_zone_info_v1 *info = (struct ipt_zone_info_v1 *) &buf[0];
++
++	info->flags = oldinfo->flags;
++	info->count = 1;
++	memcpy(info->names[0], oldinfo->name, sizeof(info->names[0]));
++
++	return zone_mt_v1_eval(skb, info, par);
++}
++
++static struct xt_match xt_zone_match[] __read_mostly = {
++	{
++		.name		= "zone",
++		.family		= NFPROTO_IPV4,
++		.match		= zone_mt_v0,
++		.matchsize	= sizeof(struct ipt_zone_info),
++		.me		= THIS_MODULE,
++	},
++	{
++		.name		= "zone",
++		.revision	= 1,
++		.family		= NFPROTO_IPV4,
++		.match		= zone_mt_v1,
++		.matchsize	= sizeof(struct ipt_zone_info_v1),
++		.me		= THIS_MODULE,
++	},
++	{
++		.name		= "zone",
++		.revision	= 1,
++		.family		= NFPROTO_IPV6,
++		.match		= zone_mt_v1,
++		.matchsize	= sizeof(struct ipt_zone_info_v1),
++		.me		= THIS_MODULE,
++	},
++};
++
++static int __init zone_mt_init(void)
++{
++	return xt_register_matches(xt_zone_match, ARRAY_SIZE(xt_zone_match));
++}
++
++static void __exit zone_mt_exit(void)
++{
++	xt_unregister_matches(xt_zone_match, ARRAY_SIZE(xt_zone_match));
++}
++
++MODULE_AUTHOR("Krisztian Kovacs <hidden@balabit.hu>");
++MODULE_DESCRIPTION("kzorp zone match");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS("ipt_zone");
++MODULE_ALIAS("ip6t_zone");
++
++module_init(zone_mt_init);
++module_exit(zone_mt_exit);

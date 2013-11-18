@@ -320,11 +320,16 @@ define KernelPackage/kzorp
 		CONFIG_NETFILTER_XTABLES \
 		CONFIG_NF_CONNTRACK_IPV4 \
 		CONFIG_NF_CONNTRACK_IPV6 \
-		CONFIG_NETFILTER_XT_MATCH_SERVICE
+		CONFIG_NETFILTER_XT_MATCH_SERVICE \
+        CONFIG_NETFILTER_XT_MATCH_ZONE
   FILES:= $(LINUX_DIR)/net/netfilter/kzorp.ko \
-	  $(LINUX_DIR)/net/netfilter/xt_KZORP.ko
+	  $(LINUX_DIR)/net/netfilter/xt_KZORP.ko \
+	  $(LINUX_DIR)/net/netfilter/xt_service.ko \
+	  $(LINUX_DIR)/net/netfilter/xt_zone.ko
   AUTOLOAD:=$(call AutoLoad,45,kzorp) \
-		$(call AutoLoad,46,xt_KZORP)
+		$(call AutoLoad,51,xt_KZORP) \
+		$(call AutoLoad,52,xt_service) \
+		$(call AutoLoad,53,xt_zone)
   $(call AddDepends/ipt)
 endef
 
