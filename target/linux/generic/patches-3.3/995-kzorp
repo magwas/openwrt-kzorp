@@ -43,7 +43,7 @@ Index: linux-3.3.8/include/linux/netfilter_ipv4.h
 Index: linux-3.3.8/net/netfilter/Kconfig
 ===================================================================
 --- linux-3.3.8.orig/net/netfilter/Kconfig	2013-11-18 17:12:29.275270021 +0100
-+++ linux-3.3.8/net/netfilter/Kconfig	2013-11-18 17:12:30.151285665 +0100
++++ linux-3.3.8/net/netfilter/Kconfig	2013-11-25 08:36:14.245468652 +0100
 @@ -337,6 +337,18 @@
  	  This is required if you intend to use any of ip_tables,
  	  ip6_tables or arp_tables.
@@ -94,6 +94,22 @@ Index: linux-3.3.8/net/netfilter/Kconfig
  config NETFILTER_XT_MATCH_RECENT
  	tristate '"recent" match support'
  	depends on NETFILTER_ADVANCED
+@@ -1139,6 +1168,15 @@
+ 
+ 	  Details and examples are in the kernel module source.
+ 
++config NETFILTER_XT_MATCH_ZONE
++	tristate "zone match support"
++	depends on NETFILTER_KZORP
++	help
++	  This option adds a new iptables `zone' match. The `zone' match
++	  can be used to match packets based on the KZorp zone structure.
++ 
++	  If unsure, say N.
++
+ endif # NETFILTER_XTABLES
+ 
+ endmenu
 Index: linux-3.3.8/net/netfilter/Makefile
 ===================================================================
 --- linux-3.3.8.orig/net/netfilter/Makefile	2013-11-18 17:12:29.235269307 +0100
