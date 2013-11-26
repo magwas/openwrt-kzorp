@@ -321,7 +321,7 @@ define KernelPackage/kzorp
 		CONFIG_NF_CONNTRACK_IPV4 \
 		CONFIG_NF_CONNTRACK_IPV6 \
 		CONFIG_NETFILTER_XT_MATCH_SERVICE \
-        CONFIG_NETFILTER_XT_MATCH_ZONE
+		CONFIG_NETFILTER_XT_MATCH_ZONE
   FILES:= $(LINUX_DIR)/net/netfilter/kzorp.ko \
 	  $(LINUX_DIR)/net/netfilter/xt_KZORP.ko \
 	  $(LINUX_DIR)/net/netfilter/xt_service.ko \
