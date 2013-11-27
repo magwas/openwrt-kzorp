@@ -13,6 +13,7 @@ define Package/zorp-addons
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=Zorp addons
+	DEPENDS:= +libxtables
 endef
 
 define Build/Prepare
@@ -26,4 +27,4 @@ define Package/zorp-addons/install
 	$(CP) $(PKG_BUILD_DIR)/libxt_service.so $(1)/usr/lib/iptables/
 endef
 
-$(eval $(call BuildPackage,zorp-addons))
+$(eval $(call BuildPackage,zorp-addons,+libxtables))

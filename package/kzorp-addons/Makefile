@@ -13,6 +13,7 @@ define Package/kzorp-addons
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=Kzorp addons
+	DEPENDS:= +libxtables
 endef
 
 define Build/Prepare
@@ -25,4 +26,4 @@ define Package/kzorp-addons/install
 	$(CP) $(PKG_BUILD_DIR)/libxt_KZORP.so $(1)/usr/lib/iptables
 endef
 
-$(eval $(call BuildPackage,kzorp-addons))
+$(eval $(call BuildPackage,kzorp-addons,+libxtables))
