@@ -302,7 +302,7 @@ define KernelPackage/ipt-tproxy
   FILES:= \
   	$(LINUX_DIR)/net/netfilter/nf_tproxy_core.ko \
   	$(foreach mod,$(IPT_TPROXY-m),$(LINUX_DIR)/net/$(mod).ko)
-  AUTOLOAD:=$(call AutoLoad,50,$(notdir nf_tproxy_core $(IPT_TPROXY-m)))
+  AUTOLOAD:=$(call AutoLoad,55,$(notdir nf_tproxy_core $(IPT_TPROXY-m)))
   $(call AddDepends/ipt)
 endef
 
