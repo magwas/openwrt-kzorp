@@ -28,12 +28,10 @@ define Build/Compile
 endef
 
 define Package/zorp/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DIR) $(1)/usr/include/zorp
-	$(INSTALL_DIR) $(1)/var/lib/zorp/tmp
-	$(INSTALL_DIR) $(1)/var/run/zorp
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/*.so $(1)/usr/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/include/zorp/*.h $(1)/usr/include/zorp/
+	$(INSTALL_DIR) $(1)/etc
+	$(INSTALL_DIR) $(1)/usr
+	$(CP) $(PKG_INSTALL_DIR)/usr/* $(1)/usr/
+	$(CP) $(PKG_INSTALL_DIR)/etc/* $(1)/etc/
 endef
 
 $(eval $(call BuildPackage,zorp,+glib,+libopenssl,+libzorpll,+libpthread))
