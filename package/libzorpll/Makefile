@@ -16,16 +16,18 @@ PKG_INSTALL:=1
 PKG_BUILD_DEPENDS:= +libopenssl +libiconv-full
 
 include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/nls.mk
 
 define Package/libzorpll
 	CATEGORY:=Libraries
 	TITLE:=libzorpll
 endef
 
-define Package/libzorpll/install
+define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/lib/
-	#$(CP) $(PKG_BUILD_DIR)/libxt_zone.so $(1)/usr/lib/
-	#$(CP) $(PKG_BUILD_DIR)/libxt_service.so $(1)/usr/lib
+	mkdir -p $(1)/usr/include/zorp
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/zorp/*.h $(1)/usr/include/zorp/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,libzorpll))
