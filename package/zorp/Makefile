@@ -1,29 +1,28 @@
 include $(TOPDIR)/rules.mk
 
 # Name and release number of this package
-PKG_NAME:=zorp-addons
-PKG_RELEASE:=1
-PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
+PKG_NAME:=zorp
+PKG_VERSION:=3.9.5
+PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)/zorp-$(PKG_VERSION)
 
+PKG_REV:=d991f043f7b9841dd5a9a4f46d9064d010f2e013
+
+PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://www.balabit.com/downloads/files/zorp/$(PKG_VERSION)/source/
 PKG_INSTALL:=1
+
+TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include/zorp
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/zorp-addons
-	SECTION:=utils
-	CATEGORY:=Utilities
-	TITLE:=Zorp addons
+define Package/zorp
+	CATEGORY:=Network
+	TITLE:=zorp
 endef
 
-define Build/Prepare
-	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) ./src/* $(PKG_BUILD_DIR)/
+define Package/zorp/install
+	$(INSTALL_DIR) $(1)/usr/lib/
 endef
 
-define Package/zorp-addons/install
-	$(INSTALL_DIR) $(1)/usr/lib/iptables
-	$(CP) $(PKG_BUILD_DIR)/libxt_zone.so $(1)/usr/lib/iptables/
-	$(CP) $(PKG_BUILD_DIR)/libxt_service.so $(1)/usr/lib/iptables/
-endef
-
-$(eval $(call BuildPackage,zorp-addons))
+$(eval $(call BuildPackage,zorp))
