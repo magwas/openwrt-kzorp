@@ -2,15 +2,16 @@ include $(TOPDIR)/rules.mk
 
 # Name and release number of this package
 PKG_NAME:=libzorpll
-PKG_RELEASE:=1
-PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)/dist-libzorpll
+PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
-ZORP_VERSION:=3.9.5
-PKG_VERSION:=3.9.1.3
-PKG_REV:=b03c856f314ecea498098b7a895842fdeee1db08
+PKG_VERSION:=3.9.3.1
 
-PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://www.balabit.com/downloads/files/zorp/$(ZORP_VERSION)/source/
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/balabit/libzorpll.git
+PKG_SOURCE_SUBDIR:=libzorpll
+PKG_SOURCE_VERSION:=3.9.3.1
+PKG_SOURCE_PROTO:=git
+
 PKG_INSTALL:=1
 PKG_BUILD_DEPENDS:= +libopenssl +libiconv-full
 
@@ -21,6 +22,11 @@ define Package/libzorpll
 	CATEGORY:=Libraries
 	TITLE:=libzorpll
     DEPENDS:= +libcrypto +glib2 +libopenssl +zlib
+endef
+
+define Build/Configure
+	(cd $(PKG_BUILD_DIR); ./autogen.sh)
+	$(call Build/Configure/Default)
 endef
 
 define Build/InstallDev
