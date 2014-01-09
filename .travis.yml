@@ -2,4 +2,4 @@ language: c
 before_install:
 - sudo apt-get install gcc binutils patch bzip2 flex make gettext pkg-config unzip libz-dev libc6-dev
 script:
-- cp configs/vanilla .config && make
+- cp configs/vanilla .config && time make tools/install
